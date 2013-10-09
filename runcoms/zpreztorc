@@ -43,7 +43,8 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'prompt' \
   'syntax-highlighting' \
-  'python'
+  'python' \
+  'ssh'
 
 #
 # Autosuggestions
