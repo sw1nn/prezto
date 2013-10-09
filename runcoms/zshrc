@@ -1,4 +1,4 @@
-#
+# -*- mode: shell-script; -*-
 # Executes commands at the start of an interactive session.
 #
 # Authors:
@@ -10,4 +10,33 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+alias -s pdf=exo-open
+alias -s html=browser
+alias -s htm=browser
+alias -s zip=file-roller
+alias -s tar=file-roller
+alias -s gz=file-roller
+alias -s bz2=file-roller
+alias -s rar=file-roller
+alias -s mp4=mplayer
+alias -s mov=mplayer
+alias -s avi=mplayer
+alias -s png=sxiv
+alias -s jpg=sxiv
+alias -s jpeg=sxiv
+alias -s gif=sxiv
+
+
+alias -g L="| less"
+alias -g EL="|& less"
+
 # Customize to your needs...
+[ -f "${HOME}/.zshrc.local" ] && source ${HOME}/.zshrc.local
+alias emacs="emacsclient -a '' -t"
+
+path=(
+  ${HOME}/bin
+  $path
+)
+
+[ -f '/usr/bin/aws_zsh_completer.sh' ] && source '/usr/bin/aws_zsh_completer.sh'
