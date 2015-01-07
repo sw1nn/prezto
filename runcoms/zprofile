@@ -50,7 +50,6 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${HOME}/bin
-  ${HOME}/.rvm/bin
   ${HOME}/.cabal/bin
   /usr/local/{bin,sbin}
   $path
@@ -85,4 +84,6 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+export CUPS_SERVER=localhost
+export AWS_DEFAULT_REGION=eu-west-1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
