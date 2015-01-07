@@ -32,11 +32,6 @@ alias -g EL="|& less"
 
 # Customize to your needs...
 [ -f "${HOME}/.zshrc.local" ] && source ${HOME}/.zshrc.local
-alias emacs="emacsclient -a '' -t"
-
-path=(
-  ${HOME}/bin
-  $path
-)
-
 [ -f '/usr/bin/aws_zsh_completer.sh' ] && source '/usr/bin/aws_zsh_completer.sh'
+
+alias emacs="emacsclient -a '' -t"
