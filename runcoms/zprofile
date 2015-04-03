@@ -87,4 +87,6 @@ fi
 
 export CUPS_SERVER=localhost
 export AWS_DEFAULT_REGION=eu-west-1
+export http_proxy=webproxy:3128
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
