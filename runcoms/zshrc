@@ -35,4 +35,6 @@ alias -g EL="|& less"
 [ -f "${HOME}/.zshrc.local" ] && source ${HOME}/.zshrc.local
 [ -f '/usr/bin/aws_zsh_completer.sh' ] && source '/usr/bin/aws_zsh_completer.sh'
 
+export http_proxy=webproxy:3128
+
 alias emacs="emacsclient -a '' -t"
