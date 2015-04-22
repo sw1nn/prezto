@@ -44,7 +44,9 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'git' \
   'gpg' \
-  'ssh'
+  'ssh' \
+  'python' \
+  'ruby'
 
 #
 # Autosuggestions

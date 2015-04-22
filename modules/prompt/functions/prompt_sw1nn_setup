@@ -33,6 +33,14 @@ function prompt_sw1nn_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
+  # Get Python info
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+  # Get Ruby info
+  if (( $+functions[ruby-info] )); then
+    ruby-info
+  fi
 }
 
 function prompt_sw1nn_setup {
@@ -68,13 +76,26 @@ function prompt_sw1nn_setup {
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}◼%f%%b'
   zstyle ':prezto:module:git:info:keys' format \
-    'prompt' ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
+    'prompt' ' %F{blue}%f$(coalesce "%b" "%p" "%c")%s' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
+  # Set python-info parameters
+  zstyle ':prezto:module:python:info:virtualenv' format 'p:%v'
+
+  # Set ruby_info parameters
+  zstyle ':prezto:module:ruby:info:version' format 'r:%v'
+
+  # ⎇ 
   # Define prompts.
-  PROMPT='%F{blue}%n%F{grey}@%F{yellow}%m:%F{magenta}%H%F{cyan}${_prompt_sw1nn_pwd}%f${git_info:+${(e)git_info[prompt]}} ${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}
+  PROMPT='%F{blue}%n%F{grey}@%F{yellow}%m:%F{magenta}%H%F{cyan}${_prompt_sw1nn_pwd}%f${git_info:+${(e)git_info[prompt]}} %F{yellow}${python_info[virtualenv]}%f %F{yellow}${ruby_info[version]}%f ${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}
 %# '
+  RPROMPT='${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
 prompt_sw1nn_setup "$@"
+
+# Local Variables:
+# mode: Sh
+# End:
+# vim: ft=sh
