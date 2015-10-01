@@ -33,8 +33,19 @@ alias -g EL="|& less"
 
 # Customize to your needs...
 [ -f "${HOME}/.zshrc.local" ] && source ${HOME}/.zshrc.local
-[ -f '/usr/bin/aws_zsh_completer.sh' ] && source '/usr/bin/aws_zsh_completer.sh'
+[ -f '${WORKON_HOME}/default/bin/aws_zsh_completer.sh' ] && source '${WORKON_HOME}/default/bin/aws_zsh_completer.sh'
 
 workon default
 
 alias emacs="emacsclient -a '' -t"
+
+nbsp=$'\u00a0'
+bindkey $nbsp kill-whole-line
+
+if [[ -n "$SSH_CONNECTION" ]] ;then
+    if [[ -n "$EMACS" ]] ;then
+        export PINENTRY_USER_DATA="USE_EMACS=1"
+    else 
+        export PINENTRY_USER_DATA="USE_CURSES=1"
+    fi
+fi
