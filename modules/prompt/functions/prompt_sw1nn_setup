@@ -89,7 +89,7 @@ function prompt_sw1nn_setup {
   #
   # Define prompts.
   PROMPT='%F{blue}%n%F{grey}@%F{yellow}%m:%F{magenta}%H%F{cyan}${_prompt_sw1nn_pwd}%f${git_info:+${(e)git_info[prompt]}} %F{yellow}${python_info[virtualenv]}%f %F{yellow}${(s/ruby/)ruby_info[version]}%f ${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}
-⪢ '
+» '
   RPROMPT='${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
