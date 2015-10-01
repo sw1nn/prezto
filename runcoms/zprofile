@@ -90,4 +90,6 @@ export CUPS_SERVER=localhost
 export PROJECT_HOME=${HOME}/workspace
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
+export AWS_DEFAULT_REGION=eu-central-1
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
