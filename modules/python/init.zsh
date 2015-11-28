@@ -176,6 +176,7 @@ if (( $? && $+commands[conda] )); then
     # to the way it was before we changed it. However, I'm not sure if this is
     # exception safe, so left it like this for now.
   fi
+  source "$commands[virtualenvwrapper_lazy.sh]"
 fi
 
 #
