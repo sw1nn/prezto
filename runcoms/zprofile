@@ -90,3 +90,5 @@ export CUPS_SERVER=localhost
 export PROJECT_HOME=${HOME}/workspace
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export WORKON_HOME=${HOME}/.virtualenvs
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
