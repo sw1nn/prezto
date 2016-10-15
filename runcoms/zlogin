@@ -24,4 +24,5 @@
     print
   fi
 
+  eval `dbus-launch --sh-syntax`
 } >&2
