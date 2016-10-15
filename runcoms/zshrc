@@ -30,14 +30,16 @@ alias -s mp3=mpg123
 
 alias -g L="| less"
 alias -g EL="|& less"
+alias -g B="| grep bin | less"
 
 # Customize to your needs...
 [ -f "${HOME}/.zshrc.local" ] && source ${HOME}/.zshrc.local
 [ -f '${WORKON_HOME}/default/bin/aws_zsh_completer.sh' ] && source '${WORKON_HOME}/default/bin/aws_zsh_completer.sh'
 
-workon default
+#workon default
 
 alias emacs="emacsclient -a '' -t"
+
 
 nbsp=$'\u00a0'
 bindkey $nbsp kill-whole-line
@@ -46,3 +48,5 @@ if [[ -S "/run/user/$(id -u)/gnupg/S.gpg-agent" ]] ; then
     export GPG_TTY=$(tty)
     echo "UPDATESTARTUPTTY" | gpg-connect-agent >& /dev/null
 fi
+
+[ -n "$TERM" ] && export TERM=xterm-256color
