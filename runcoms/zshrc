@@ -42,12 +42,6 @@ alias emacs="emacsclient -a '' -t"
 nbsp=$'\u00a0'
 bindkey $nbsp kill-whole-line
 
-if [[ -n "$SSH_CONNECTION" ]] ;then
-    if [[ -n "$EMACS" ]] ;then
-        export PINENTRY_USER_DATA="USE_EMACS=1"
-    else 
-        export PINENTRY_USER_DATA="USE_CURSES=1"
-    fi
 if [[ -S "/run/user/$(id -u)/gnupg/S.gpg-agent" ]] ; then
     export GPG_TTY=$(tty)
     echo "UPDATESTARTUPTTY" | gpg-connect-agent >& /dev/null
