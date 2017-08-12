@@ -39,6 +39,7 @@ alias -g B="| grep bin | less"
 #workon default
 
 alias emacs="emacsclient -a '' -t"
+alias vi="vim"
 
 
 nbsp=$'\u00a0'
