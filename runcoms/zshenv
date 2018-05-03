@@ -28,6 +28,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=${HOME}/.virtualenvs
 export NODE_CONFIG_PREFIX=${HOME}/.node-modules
 export CARGO_PREFIX=${HOME}/.cargo
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+if (( $#commands[rust] )); then
+    export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+fi
 
 
