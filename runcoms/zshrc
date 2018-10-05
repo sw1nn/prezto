@@ -42,11 +42,6 @@ fpath=(~/.local/share/zsh/site-functions $fpath)
 nbsp=$'\u00a0'
 bindkey $nbsp kill-whole-line
 
-if [[ -S "/run/user/$(id -u)/gnupg/S.gpg-agent" ]] ; then
-    export GPG_TTY=$(tty)
-    echo "UPDATESTARTUPTTY" | gpg-connect-agent >& /dev/null
-fi
-
 [ -n "$TERM" ] && export TERM=xterm-256color
 
 [[ -f /usr/bin/aws_zsh_completer.sh ]] && source /usr/bin/aws_zsh_completer.sh
@@ -63,4 +58,19 @@ fi
 
 if [[ -n $INSIDE_EMACS  ]] ; then
     RPROMPT=''
+fi
+
+mosh-cleanup() {
+   IFS=$'\n' pids=($(who | awk '/neale.*\(mosh/{gsub(/[\[\]()]/,""); print $6;}'))
+   [ -n "$pids" ] && for pid in ${pids}; do kill $pid; done
+}
+
+if [ -f "${HOME}/.gnupg/gpg-agent.info" ]; then
+    source "${HOME}/.gnupg/gpg-agent.info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+
+    export GPG_TTY=$(tty)
+    echo "UPDATESTARTUPTTY" | gpg-connect-agent >& /dev/null
+    return
 fi
