@@ -32,4 +32,4 @@ if (( $#commands[rust] )); then
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 fi
 
-
+export PHARO_IMAGE=~/.local/share/pharo/Pharo.image
