@@ -11,12 +11,6 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-path=(
-      ${NODE_CONFIG_PREFIX}/bin
-      ${CARGO_PREFIX:-${HOME}/.cargo}/bin
-      $path
-     )
-
 export CUPS_SERVER=printserver0
 
 # https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
