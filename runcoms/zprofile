@@ -49,8 +49,6 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ${HOME}/.local/bin
-  ${HOME}/.rvm/bin
   ${HOME}/.cabal/bin
   ${HOME}/.cargo/bin
   /usr/local/{bin,sbin}
@@ -86,4 +84,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
